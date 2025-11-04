@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+
+/* FONTS */
+
+@font-face {
+    font-family: Satushi;
+    src: url('/fonts/Satoshi-Bold.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Roleya;
+    src: url('/fonts/RoleyaDemoRegular-KVeeD.otf') format("opentype");
+}
+
+@font-face {
+    font-family: Outfit;
+    src: url('/fonts/Outfit-Medium.otf') format("opentype");
+}
+
+@font-face {
+    font-family: OutfitRegular;
+    src: url('/fonts/Outfit-Regular.otf') format("opentype");
+}
+
+@font-face {
+    font-family: OutfitLight;
+    src: url('/fonts/Outfit-Light.otf') format("opentype");
+}
+
+@theme {
+    --font-satushi-bold: Satushi, "sans-serif";
+    --font-outfit-medium: Outfit, "sans-serif";
+    --font-outfit-regular: OutfitRegular, "sans-serif";
+    --font-outfit-light: OutfitLight, "sans-serif";
+    --font-roleya: Roleya, "sans-serif";
+}
+
+/* COLOR PALLETE */
+@theme {
+    --color-primary-accent: #B89C66;
+    --color-primary-text: #1A1A1A;
+    --color-secondary-text: #5c5c5c;
+    --color-background: #FFFFFF;
+}
+
+/* CLASSSES */
+@layer utilities {
+    
+    .container {
+        @apply px-16 py-10
+    }
+
+    .centerlizeItems {
+        @apply flex items-center justify-center
+    }
+}
