@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: Bredga;
+    src: url('/fonts/Bredga-Yqqv4.otf') format("opentype");
+}
+
+@font-face {
     font-family: Roleya;
     src: url('/fonts/RoleyaDemoRegular-KVeeD.otf') format("opentype");
 }
@@ -34,6 +39,7 @@
     --font-outfit-regular: OutfitRegular, "sans-serif";
     --font-outfit-light: OutfitLight, "sans-serif";
     --font-roleya: Roleya, "sans-serif";
+    --font-bredga: Bredga, "sans-serif";
 }
 
 /* COLOR PALLETE */

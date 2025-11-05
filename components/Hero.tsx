@@ -52,7 +52,7 @@ const Hero = () => {
 
 return (
 <section className="h-screen space-y-8 font-outfit-medium flex flex-col justify-center">
-    <div className="heroText uppercase  font-outfit-light space-y-5">
+    <div className="heroText uppercase  font-satushi-bold space-y-5">
         <div className="flex justify-around items-center text-[4rem]">
             <div className="initialText">This</div>
             <div className="initialText">Is</div>
