@@ -12,7 +12,7 @@ const WorkSection = ({public_id}: CloudinaryImageProps) => {
     
     return (
         <main className="projectsHolder">
-            <section  className="main_work h-screen">
+            <section  className="main_work h-[80dvh] md:h-screen">
                 <div ref={workImageRef} className="size-full">
                     <CldImage src={public_id}
                     alt="Portfolio image"

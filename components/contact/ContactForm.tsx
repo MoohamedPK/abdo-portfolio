@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react"
 import { useState } from "react"
+import emailjs from "@emailjs/browser"
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -27,29 +28,32 @@ const ContactForm = () => {
     setSubmitStatus('idle')
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
+        await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            {
+            from_name: formData.name,
+            from_email: formData.email,  // This becomes the reply-to
+            reply_to: formData.email,     // Explicitly set reply-to
+            phone: formData.phone || 'Not provided',
+            message: formData.message,
+            to_email: 'your@email.com'   // Your email (optional, can set in template)
+            },
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        )
+        setSubmitStatus("success")
+        setFormData({ name: '', email: '', phone: '', message: '' })
 
-      if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' }) // Clear form
-      } else {
-        setSubmitStatus('error')
-      }
+        setTimeout(() => { setSubmitStatus("idle")}, 2000)
     } catch (error) {
         console.error("error to send email : ", error)
-      setSubmitStatus('error')
+        setSubmitStatus('error')
     } finally {
-      setIsSubmitting(false)
+        setIsSubmitting(false)
     }
-  }
+    }
 
-  return (
+    return (
     <form onSubmit={handleSubmit} className="contactInputs font-outfit-medium space-y-6">
 
         <div>
@@ -57,7 +61,7 @@ const ContactForm = () => {
                 Name *
             </label>
 
-            <input name="name" onChange={handleChange} value={formData.name} type="text" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
+            <input name="name" required onChange={handleChange} value={formData.name} type="text" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
         </div>
 
         <div>
@@ -65,7 +69,7 @@ const ContactForm = () => {
                 Email *
             </label>
 
-            <input name="email" onChange={handleChange} value={formData.email} type="email" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
+            <input name="email" required onChange={handleChange} value={formData.email} type="email" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
         </div>
 
         <div>
@@ -81,7 +85,7 @@ const ContactForm = () => {
                 Tell Me About Your Project *
             </label>
 
-            <textarea name="message" onChange={handleChange} value={formData.message} className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300" />
+            <textarea name="message" required onChange={handleChange} value={formData.message} className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300" />
         </div>
 
         {submitStatus === 'success' && (
@@ -110,7 +114,7 @@ const ContactForm = () => {
         </div>
 
     </form>
-  )
+    )
 }
 
 export default ContactForm

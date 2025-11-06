@@ -60,4 +60,8 @@
     .centerlizeItems {
         @apply flex items-center justify-center
     }
+
+    .btnHover {
+        @apply hover:scale-90 transition-transform duration-300
+    }
 }

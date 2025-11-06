@@ -4,24 +4,27 @@ import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import ContactForm from "./ContactForm"
 
 const ContactPage = () => {
-
-    useTextRevealAnimation({trigger: ".contactSection", ele:".contactTitle"})
-    useTextRevealAnimation({trigger: ".contactSection", ele:".contactQuote"})
+    useTextRevealAnimation({ trigger: ".contactSection", ele: ".contactTitle" })
+    useTextRevealAnimation({ trigger: ".contactSection", ele: ".contactQuote" })
 
     return (
-        <section className="contactSection h-screen container grid grid-cols-2 gap-x-12">
-
-            <div className="space-y-12 text-center">
-                <div className="text-[3.5rem]  font-satushi-bold">
-                    <h1 className="contactTitle">⬤ Let&apos;s Get In Touch</h1>
-                </div>
-
-                <div className="contactQuote text-[3rem] font-roleya uppercase text-black/75">
-                    <p>𓏲𝄢 Your vision, my lens. Let&apos;s make magic happen. 𓏲𝄢</p>
-                </div>
+        <section
+        id="contact"
+        className="contactSection min-h-screen md:container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-4 sm:px-6 lg:px-12 py-16"
+        >
+        <div className="space-y-8 text-center lg:text-left">
+            <div className="text-[2.5rem] sm:text-[3rem] lg:text-[3.5rem] font-satushi-bold">
+            <h1 className="contactTitle">⬤ Let&apos;s Get In Touch</h1>
             </div>
 
-            <ContactForm/>
+            <div className="contactQuote text-[1.5rem] sm:text-[2rem] lg:text-[3rem] font-roleya uppercase text-black/75">
+            <p>𓏲𝄢 Your vision, my lens. Let&apos;s make magic happen. 𓏲𝄢</p>
+            </div>
+        </div>
+
+        <div className="w-full max-w-xl mx-auto lg:max-w-none">
+            <ContactForm />
+        </div>
         </section>
     )
 }

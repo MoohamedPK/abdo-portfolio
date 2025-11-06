@@ -4,43 +4,49 @@ import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import { media, navLinks } from "@/utils/data"
 
 const Footer = () => {
+    useTextRevealAnimation({ trigger: ".footer", ele: ".mediaLink" })
+    useTextRevealAnimation({ trigger: ".footer", ele: ".link" })
+    useTextRevealAnimation({ trigger: ".footer", ele: ".footerTag" })
 
-    useTextRevealAnimation({trigger: ".footer", ele: ".mediaLink"})
-    useTextRevealAnimation({trigger: ".footer", ele: ".link"})
-    useTextRevealAnimation({trigger: ".footer", ele: ".footerTag"})
-
-  return (
-    <footer className="footer h-[75dvh] bg-black pt-20 ">
-        <div className="flex justify-around">
-            <div className="">
-                <h1 className="pb-10">INTERASTING</h1>
-
-                <ul className="flex flex-col space-y-3">
-                    {navLinks.map((link) => (
-                        <li className="link" key={link.link}>{link.link}</li>
-                    ))}
-                </ul>
+    return (
+        <footer className="footer bg-black text-white pt-20 pb-8 min-h-[60vh] flex flex-col justify-between">
+        <div className="md:container mx-auto px-4 sm:px-6 lg:px-12 flex justify-around gap-12 text-center sm:text-left">
+            {/* Left column */}
+            <div>
+            <h1 className="pb-6 text-xl font-satushi-bold tracking-wide">INTERESTING</h1>
+            <ul className="flex flex-col space-y-3 text-gray-300">
+                {navLinks.map((link) => (
+                <li className="link hover:text-white transition-colors" key={link.link}>
+                    {link.link}
+                </li>
+                ))}
+            </ul>
             </div>
 
-            <div className="">
-                <h1 className="pb-10">MORE ABOUT ME</h1>
-                <ul className="flex flex-col space-y-3">
-                    {media.map((media) => (
-                        <li className="mediaLink" key={media.media}>{media.media}</li>
-                    ))}
-                </ul>
+            {/* Right column */}
+            <div>
+            <h1 className="pb-6 text-xl font-satushi-bold tracking-wide">MORE ABOUT ME</h1>
+            <ul className="flex flex-col space-y-3 text-gray-300">
+                {media.map((m) => (
+                <li className="mediaLink hover:text-white transition-colors" key={m.media}>
+                    {m.media}
+                </li>
+                ))}
+            </ul>
             </div>
         </div>
 
-        <div className="text-center pt-10 font-roleya text-[6rem]">
+        {/* Footer tag */}
+        <div className="text-center pt-16 font-roleya text-[2rem] sm:text-[3rem] md:text-[4rem] lg:text-[6rem] tracking-wider text-white/90">
             <h1 className="footerTag">✶ LENSE & LIGHT ✶</h1>
         </div>
 
-        <div className="text-center">
-            <p>© {new Date().getFullYear()} HML Photography. All rights reserved.</p>
+        {/* Copyright */}
+        <div className="text-center text-gray-400 text-sm sm:text-base mt-8">
+            <p>© {new Date().getFullYear()} HML Photography. All rights reserved.</p>
         </div>
-    </footer>
-  )
+        </footer>
+    )
 }
 
 export default Footer
