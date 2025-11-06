@@ -12,7 +12,6 @@ ScrollTrigger.config({
     ignoreMobileResize: true,
 })
 
-ScrollTrigger.normalizeScroll(true)
 
 export function useClipPathAnimation (ref: RefObject<HTMLDivElement | null>) {
     useGSAP(() => {
