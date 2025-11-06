@@ -7,6 +7,13 @@ import {RefObject} from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
+ScrollTrigger.config({
+    limitCallbacks: true,
+    ignoreMobileResize: true,
+})
+
+ScrollTrigger.normalizeScroll(true)
+
 export function useClipPathAnimation (ref: RefObject<HTMLDivElement | null>) {
     useGSAP(() => {
         
@@ -18,7 +25,9 @@ export function useClipPathAnimation (ref: RefObject<HTMLDivElement | null>) {
             start: "top bottom",
             end: "bottom top",
             scrub: 1,
-            }
+            fastScrollEnd: true,
+            preventOverlaps: true
+            },
         })
 
         // enter animation
@@ -28,6 +37,7 @@ export function useClipPathAnimation (ref: RefObject<HTMLDivElement | null>) {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
             duration: 3,
             ease: "none",
+            overwrite: "auto"
         });
 
         // exit animation
@@ -35,6 +45,7 @@ export function useClipPathAnimation (ref: RefObject<HTMLDivElement | null>) {
             clipPath: "polygon(0 0, 100% 0, 78% 64%, 29% 64%)",
             duration: 3,
             ease: "none",
+            overwrite: "auto"
         })
         
     }, [ref])

@@ -31,13 +31,16 @@ export function useTextRevealAnimation({
             duration: 1,
             ease: "power3.out",
             stagger: 0.05,
+            overwrite: "auto",
             scrollTrigger: {
                 trigger: section,
                 start: "top 80%",
                 end: "bottom bottom",
+                fastScrollEnd: true,
+                preventOverlaps: true
             },
             onComplete: () => split.revert(), // cleanup after animation
-            }
+            },
         )
         }
 
