@@ -11,8 +11,7 @@ const WorkSection = ({public_id}: CloudinaryImageProps) => {
     useClipPathAnimation(workImageRef)
     
     return (
-        <main className="projectsHolder">
-            <section  className="main_work h-[80dvh] md:h-screen">
+            <section  className="main_work h-[50dvh] md:h-screen">
                 <div ref={workImageRef} className="size-full">
                     <CldImage src={public_id}
                     alt="Portfolio image"
@@ -21,8 +20,6 @@ const WorkSection = ({public_id}: CloudinaryImageProps) => {
                     className="object-cover size-full"/>
                 </div>
             </section>
-
-        </main>
     )
 }
 
