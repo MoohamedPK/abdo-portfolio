@@ -52,7 +52,7 @@
 
 /* CLASSSES */
 @layer utilities {
-    
+
     .container {
         @apply px-16 py-10
     }

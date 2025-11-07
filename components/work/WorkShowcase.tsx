@@ -9,11 +9,11 @@ const WorkShowcase = ({images}: {images: CloudinaryImageProps[]}) => {
     useTextRevealAnimation({ trigger: ".workShowcase", ele: ".work_quote" })
 
 return (
-    <section id="work" className="pt-10">
+    <section id="work" className="pt-10 bg-black">
 
         <div className="
             workShowcase 
-            h-[50dvh] sm:h-[60dvh] md:h-[70dvh] lg:h-[80dvh] 
+            h-[50svh] sm:h-[60svh] md:h-[70dvh] lg:h-[80dvh] 
             flex items-center justify-center 
             px-4 sm:px-6 md:px-10
             ">
@@ -29,7 +29,7 @@ return (
             </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-0 sm:px-4 md:px-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {images.map((image: CloudinaryImageProps) => (
                 <WorkSection 
                     secure_url={image.secure_url} 

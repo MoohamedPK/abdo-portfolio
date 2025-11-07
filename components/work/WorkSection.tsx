@@ -7,16 +7,18 @@ import { CldImage } from "next-cloudinary"
 
 const WorkSection = ({public_id}: CloudinaryImageProps) => {
     
-    const workImageRef = useRef<HTMLDivElement>(null)
+    const workImageRef = useRef<HTMLImageElement>(null)
     useClipPathAnimation(workImageRef)
     
     return (
-            <section  className="main_work h-[50dvh] md:h-screen">
-                <div ref={workImageRef} className="size-full">
-                    <CldImage src={public_id}
+            <section  className="main_work h-[50svh] md:h-screen overflow-hidden">
+                <div className="size-full">
+                    <CldImage src={public_id + ".jpg"}
+                    ref={workImageRef}
                     alt="Portfolio image"
-                    width={1000}
-                    height={1000}
+                    width={800}
+                    height={800}
+                    loading= "lazy"
                     className="object-cover size-full"/>
                 </div>
             </section>
