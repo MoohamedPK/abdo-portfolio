@@ -11,7 +11,7 @@ const WorkSection = ({public_id}: CloudinaryImageProps) => {
     useClipPathAnimation(workImageRef)
     
     return (
-            <section  className="main_work h-[50svh] md:h-screen overflow-hidden">
+            <section  className="main_work h-[50vh] md:h-screen">
                 <div className="size-full">
                     <CldImage src={public_id + ".jpg"}
                     ref={workImageRef}

@@ -13,7 +13,7 @@ return (
 
         <div className="
             workShowcase 
-            h-[50svh] sm:h-[60svh] md:h-[70dvh] lg:h-[80dvh] 
+            h-[50svh] sm:h-[60svh] md:h-[70vh] lg:h-[80vh] 
             flex items-center justify-center 
             px-4 sm:px-6 md:px-10
             ">
