@@ -1,11 +1,11 @@
 "use client"
 
 import { useClipPathAnimation } from "@/hooks/useClipPathAnimation"
-import { CloudinaryImageProps } from "@/utils/types"
+import { CloudinaryMediaProps } from "@/utils/types"
 import { useRef } from "react"
 import { CldImage } from "next-cloudinary"
 
-const WorkSection = ({public_id}: CloudinaryImageProps) => {
+const WorkSection = ({public_id}: CloudinaryMediaProps) => {
     
     const workImageRef = useRef<HTMLImageElement>(null)
     useClipPathAnimation(workImageRef)
@@ -19,7 +19,7 @@ const WorkSection = ({public_id}: CloudinaryImageProps) => {
                     width={800}
                     height={800}
                     loading= "lazy"
-                    className="object-cover size-full"/>
+                    className="object-cover size-full "/>
                 </div>
             </section>
     )

@@ -36,8 +36,7 @@ export function useTextRevealAnimation({
                 trigger: section,
                 start: "top 80%",
                 end: "bottom bottom",
-                fastScrollEnd: true,
-                preventOverlaps: true
+                toggleActions: "play none none none"
             },
             onComplete: () => split.revert(), // cleanup after animation
             },

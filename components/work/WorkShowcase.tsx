@@ -1,10 +1,10 @@
 "use client"
 
 import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
-import { CloudinaryImageProps } from "@/utils/types"
+import { CloudinaryMediaProps } from "@/utils/types"
 import WorkSection from "./WorkSection"
 
-const WorkShowcase = ({images}: {images: CloudinaryImageProps[]}) => {
+const WorkShowcase = ({images}: {images: CloudinaryMediaProps[]}) => {
 
     useTextRevealAnimation({ trigger: ".workShowcase", ele: ".work_quote" })
 
@@ -30,7 +30,7 @@ return (
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {images.map((image: CloudinaryImageProps) => (
+            {images.map((image: CloudinaryMediaProps) => (
                 <WorkSection 
                     secure_url={image.secure_url} 
                     public_id={image.public_id} 

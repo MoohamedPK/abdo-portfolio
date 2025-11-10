@@ -7,17 +7,13 @@ import { RefObject } from "react"
 
 gsap.registerPlugin(ScrollTrigger)
 
-// ScrollTrigger.normalizeScroll({ 
-// allowNestedScroll: true,
-// })
-
 export function useClipPathAnimation (ref: RefObject<HTMLImageElement | null>) {
     
     useGSAP(() => {
         if (!ref.current) return;
 
-        const normalizer = ScrollTrigger.normalizeScroll(true)
-        console.log(normalizer)
+        ScrollTrigger.normalizeScroll(true)
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: ref.current,
@@ -25,7 +21,6 @@ export function useClipPathAnimation (ref: RefObject<HTMLImageElement | null>) {
                 end: "bottom top",
                 scrub: 1,
             },
-
             defaults: {
                 duration: 3,
                 ease: "none",
@@ -35,7 +30,7 @@ export function useClipPathAnimation (ref: RefObject<HTMLImageElement | null>) {
         
         // enter animation
         tl.fromTo(ref.current,{
-            clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0 100%)"
+            clipPath: "polygon(25% 25%, 75% 40%, 100% 100%, 0 100%)",
         }, {
             clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
         });

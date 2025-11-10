@@ -1,4 +1,4 @@
-export type CloudinaryImageProps = {
+export type CloudinaryMediaProps = {
     public_id: string,
-    secure_url?: string
+    secure_url: string
 }

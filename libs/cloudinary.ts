@@ -6,8 +6,8 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
-export async function getImagesFromFolder (folder: string) {
+export async function getMediaFromFolder (folder: string) {
 
-    const result = await cloudinary.search.expression(`folder:${folder}`).sort_by("created_at", "desc").execute()
+    const result = await cloudinary.search.expression(`folder="${folder}"`).sort_by("created_at", "desc").execute()
     return result.resources
 } 
