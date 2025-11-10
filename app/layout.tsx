@@ -10,10 +10,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-[#780606] text-background/75`}
+        className={`antialiased bg-primary-accent text-background/75`}
       >
-        <LenisProvider/>
-          {children}
+          <LenisProvider/>
+            {children}
       </body>
     </html>
   );

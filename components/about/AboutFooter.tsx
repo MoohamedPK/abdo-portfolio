@@ -7,7 +7,6 @@ import { CldImage } from "next-cloudinary"
 const AboutFooter = ({workMedia}: {workMedia: CloudinaryMediaProps[]}) => {
 
     useTextRevealAnimation({trigger: ".aboutFooter", ele: ".quote"})
-
   return (
     <section className="aboutFooter h-[75svh] md:h-screen py-20">
         <div className="quote font-roleya text-center text-[1.5rem] md:text-[2.5rem]">

@@ -18,27 +18,25 @@ export function useTextRevealAnimation({
         // Validation
         if (!trigger || !ele) return
 
-        // Helper to create the animation
         const animateText = (element: string, section: string) => {
         const split = new SplitText(element, { type: "words", mask: "words" })
 
         gsap.fromTo(
             split.words,
-            { yPercent: 125, skewY: 10 },
+            { yPercent: 125, skewY: 10, opacity: 0 },
             {
             yPercent: 0,
             skewY: 0,
+            opacity: 1,
             duration: 1,
             ease: "power3.out",
             stagger: 0.05,
-            overwrite: "auto",
             scrollTrigger: {
                 trigger: section,
                 start: "top 80%",
                 end: "bottom bottom",
-                toggleActions: "play none none none"
             },
-            onComplete: () => split.revert(), // cleanup after animation
+            onComplete: () => split.revert(),
             },
         )
         }

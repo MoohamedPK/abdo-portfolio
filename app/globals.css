@@ -53,6 +53,40 @@
 /* CLASSSES */
 @layer utilities {
 
+    /* globals.css */
+    
+        /* Prevent iOS Safari zoom on input focus */
+        input,
+        textarea,
+        select {
+            font-size: 16px !important;
+        }
+    
+        /* Prevent elastic scrolling issues */
+        html {
+            overscroll-behavior: none;
+            -webkit-overflow-scrolling: touch;
+        }
+    
+        body {
+            overscroll-behavior-y: none;
+        }
+    
+        /* Force GPU acceleration for better mobile performance */
+        .main_work {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            will-change: transform;
+        }
+    
+        /* Improve clip-path performance */
+        .main_work img {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
     .container {
         @apply px-16 py-10
     }

@@ -23,7 +23,7 @@ return (
                 text-[1.5rem] sm:text-[2rem] md:text-[3rem] 
                 max-w-xl lg:max-w-6xl 
                 text-center uppercase font-roleya 
-                leading-9 md:leading-normal
+                
                 ">
                 <p>𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢</p>
             </div>
