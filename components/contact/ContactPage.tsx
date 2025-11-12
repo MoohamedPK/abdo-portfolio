@@ -17,7 +17,7 @@ const ContactPage = () => {
             <h1 className="contactTitle">⬤ Let&apos;s Get In Touch</h1>
             </div>
 
-            <div className="contactQuote text-[1.5rem] sm:text-[2rem] lg:text-[3rem] font-roleya uppercase text-black/75">
+            <div className="contactQuote text-[1.5rem] sm:text-[2rem] lg:text-[3rem] font-roleya uppercase text-black">
             <p>𓏲𝄢 Your vision, my lens. Let&apos;s make magic happen. 𓏲𝄢</p>
             </div>
         </div>

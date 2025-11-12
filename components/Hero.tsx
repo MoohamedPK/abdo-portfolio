@@ -7,15 +7,18 @@ import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import Link from "next/link";
 
 gsap.registerPlugin(SplitText);
+
 const Hero = () => {
+
+    useTextRevealAnimation({trigger: ".heroText", ele: ".initialText"})
     
     useGSAP(() => {
         
         const tl = gsap.timeline({
             defaults:{
-            duration: 1,
-            ease: "power3.out",
-            stagger: 0.05,
+                duration: 1.5,
+                ease: "power3.out",
+                stagger: 0.05,
             }
         });
         
@@ -24,24 +27,24 @@ const Hero = () => {
         
         tl.fromTo(HeroTextSplit.chars, {
             yPercent: 125,
-            skewY: 25,
-            opacity: 0
+            rotateX: 30,
+            filter: "blur(10px)",
         }, {
-            opacity: 1,
+            rotateX: 0,
+            filter: "blur(0px)",
             yPercent: 0,
-            skewY: 0,
         }, "<0.5")
-
+        
         .fromTo(paraTextSplit.words, {
-            yPercent: 125,
-            opacity: 0,
-            skewY: 25,
+            yPercent: 90,
+            rotateX: 30,
+            filter: "blur(7px)",
         }, {
-            opacity: 1,
             yPercent: 0,
-            skewY: 0,
+            rotateX: 0,
+            filter: "blur(0px)",
         }, "<0.7")
-
+        
         .fromTo(".hero-btn", {
             opacity: 0,
             yPercent: 100,
@@ -50,27 +53,27 @@ const Hero = () => {
             yPercent: 0,
             
         }, "<0.7")
-
+        
         return () => {
             HeroTextSplit.revert();
             paraTextSplit.revert();
         }
     }, [])
     
-    useTextRevealAnimation({trigger: ".heroText", ele: ".initialText"})
 
 return (
-<section className="h-[80dvh] md:h-screen space-y-8 font-outfit-medium flex flex-col justify-center">
-    <div className="heroText uppercase  font-satushi-bold space-y-5">
-        <div className="flex justify-around items-center text-[2rem] md:text-[4rem]">
+<section className="h-screen space-y-8 font-outfit-medium flex flex-col justify-center relative">
+
+    <div className="heroText uppercase  font-satushi-bold space-y-5 z-80 ">
+        <div className="flex justify-around items-center text-[2rem] md:text-[4rem] ">
             <div className="initialText">This</div>
             <div className="initialText">Is</div>
             <div className="initialText">Me</div>
         </div>
 
         <div className="text-center space-y-5 md:space-y-0">
-            <h1 className="HeroName text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] font-satushi-bold italic tracking-widest text-black">Abdorahman</h1>
-            <p className="heroParagraph font-outfit-light lowercase text-[1.2rem]">Welcome to my lens  where light, emotion, and creativity come to life</p>
+            <h1 className="HeroName text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] font-satushi-bold italic tracking-widest text-black leading-11 md:leading-normal">Abdorahman</h1>
+            <p className="heroParagraph font-outfit-light lowercase text-[1.2rem] leading-8">Welcome to my lens  where light, emotion, and creativity come to life</p>
         </div>
     </div>
 

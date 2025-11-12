@@ -12,10 +12,9 @@ export function useTextRevealAnimation({
     ele,
     }: {
     trigger: string | string[]
-    ele: string | string[]
+    ele: string | string[],
     }) {
     useGSAP(() => {
-        // Validation
         if (!trigger || !ele) return
 
         const animateText = (element: string, section: string) => {
@@ -23,13 +22,13 @@ export function useTextRevealAnimation({
 
         gsap.fromTo(
             split.words,
-            { yPercent: 125, skewY: 10, opacity: 0 },
+            { yPercent: 90, rotateX: 30},
             {
+            rotateX: 0,
             yPercent: 0,
-            skewY: 0,
             opacity: 1,
-            duration: 1,
-            ease: "power3.out",
+            duration: 1.5,
+            ease: "power2.inOut",
             stagger: 0.05,
             scrollTrigger: {
                 trigger: section,
@@ -38,8 +37,7 @@ export function useTextRevealAnimation({
             },
             onComplete: () => split.revert(),
             },
-        )
-        }
+        )}
 
         // Case 1: both are arrays
         if (Array.isArray(trigger) && Array.isArray(ele)) {

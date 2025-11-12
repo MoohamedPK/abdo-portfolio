@@ -3,27 +3,35 @@
 import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import { CloudinaryMediaProps } from "@/utils/types"
 import WorkSection from "./WorkSection"
+import { useParagraphAnimation } from "@/hooks/useParagraphAnimation"
+import { useRef } from "react"
 
 const WorkShowcase = ({images}: {images: CloudinaryMediaProps[]}) => {
 
-    useTextRevealAnimation({ trigger: ".workShowcase", ele: ".work_quote" })
+    // useTextRevealAnimation({ trigger: ".workShowcase", ele: ".work_quote"})
+    const workShowcaseRef = useRef<HTMLDivElement>(null)
+    const workQuoteRef = useRef<HTMLDivElement>(null)
+
+    useParagraphAnimation({ref: workQuoteRef, trigger: workShowcaseRef})
 
 return (
-    <section id="work" className="pt-10 bg-black">
+    <section id="work" className="bg-black">
 
-        <div className="
-            workShowcase 
-            h-[50svh] sm:h-[60svh] md:h-[70vh] lg:h-[80vh] 
+        <div ref={workShowcaseRef} className="
+        
+            workShowcase
+            py-15
+            md:py-20
             flex items-center justify-center 
             px-4 sm:px-6 md:px-10
             ">
 
-            <div className="
+            <div ref={workQuoteRef} className="
                 work_quote 
-                text-[1.5rem] sm:text-[2rem] md:text-[3rem] 
-                max-w-xl lg:max-w-6xl 
+                text-[1rem] sm:text-[2rem] lg:text-[2.5rem]
+                max-w-250
                 text-center uppercase font-roleya 
-                
+                leading-8 md:leading-15
                 ">
                 <p>𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢</p>
             </div>
