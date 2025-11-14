@@ -7,7 +7,9 @@ const Projects = async () => {
     const images = await getMediaFromFolder("portfolio") as CloudinaryMediaProps[]
 
   return (
+    <main className="bg">
       <WorkShowcase images={images}/>
+    </main>
   )
 }
 

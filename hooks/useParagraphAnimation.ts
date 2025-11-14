@@ -11,26 +11,32 @@ gsap.registerPlugin(ScrollTrigger, SplitText)
 export const useParagraphAnimation = ({ref, trigger}: {ref: RefObject<HTMLElement | null>, trigger?: RefObject<HTMLElement | null>}) => {
 
     useGSAP(() => {
-        const paragraphSplited = new SplitText(ref.current, {type: "words", mask: "words"});
+            const paragraphSplited = new SplitText(ref.current, {type: "words", mask: "words"});
+    
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: trigger?.current ,
+                    start: "top bottom",
+                    end: "bottom bottom"
+                }
+            })
+    
+            tl.fromTo(paragraphSplited.words, {
+                yPercent: 100,
+                rotateY: 40
+            }, {
+                yPercent: 0,
+                rotateY: 0,
+                duration: 1.5,
+                ease: "power3.inOut",
+                stagger: 0.05
+            })
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: trigger?.current ,
-                start: "top 80%",
-                end: "bottom bottom"
-            }
-        })
-
-        tl.fromTo(paragraphSplited.words, {
-            yPercent: 100,
-            rotateY: 40
-        }, {
-            yPercent: 0,
-            rotateY: 0,
-            duration: 1.5,
-            ease: "power3.inOut",
-            stagger: 0.05
-        })
+        return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+            paragraphSplited.revert();
+    };
     }, [])
 
 }
