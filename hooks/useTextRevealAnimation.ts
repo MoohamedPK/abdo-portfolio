@@ -20,9 +20,9 @@ export function useTextRevealAnimation({
         const animateText = (element: string, section: string) => {
         const split = new SplitText(element, { type: "words", mask: "words" })
 
-        gsap.fromTo(
+        gsap.set(split.words, {yPercent: 90, rotateX: 30})
+        gsap.to(
             split.words,
-            { yPercent: 90, rotateX: 30},
             {
             rotateX: 0,
             yPercent: 0,

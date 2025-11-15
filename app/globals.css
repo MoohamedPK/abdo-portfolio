@@ -4,13 +4,13 @@
 /* FONTS */
 
 @font-face {
-    font-family: Satushi;
-    src: url('/fonts/Satoshi-Bold.otf') format("opentype");
+    font-family: Mardon;
+    src: url('/fonts/Mardon.otf') format("opentype");
 }
 
 @font-face {
-    font-family: Bredga;
-    src: url('/fonts/Bredga-Yqqv4.otf') format("opentype");
+    font-family: Daveau;
+    src: url('/fonts/DaveauItalic.otf') format("opentype");
 }
 
 @font-face {
@@ -18,28 +18,11 @@
     src: url('/fonts/RoleyaDemoRegular-KVeeD.otf') format("opentype");
 }
 
-@font-face {
-    font-family: Outfit;
-    src: url('/fonts/Outfit-Medium.otf') format("opentype");
-}
-
-@font-face {
-    font-family: OutfitRegular;
-    src: url('/fonts/Outfit-Regular.otf') format("opentype");
-}
-
-@font-face {
-    font-family: OutfitLight;
-    src: url('/fonts/Outfit-Light.otf') format("opentype");
-}
 
 @theme {
-    --font-satushi-bold: Satushi, "sans-serif";
-    --font-outfit-medium: Outfit, "sans-serif";
-    --font-outfit-regular: OutfitRegular, "sans-serif";
-    --font-outfit-light: OutfitLight, "sans-serif";
+    --font-daveau: Daveau, "sans-serif";
     --font-roleya: Roleya, "sans-serif";
-    --font-bredga: Bredga, "sans-serif";
+    --font-mardon: Mardon, "sans-serif";
 }
 
 /* COLOR PALLETE */

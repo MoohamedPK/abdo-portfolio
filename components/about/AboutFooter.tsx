@@ -8,8 +8,8 @@ const AboutFooter = ({workMedia}: {workMedia: CloudinaryMediaProps[]}) => {
 
     useTextRevealAnimation({trigger: ".aboutFooter", ele: ".quote"})
   return (
-    <section className="aboutFooter h-[75svh] md:h-[110dvh] bg-black">
-        <div className="quote font-roleya pt-20">
+    <section className="aboutFooter h-[75svh] md:h-[110dvh]">
+        <div className="quote font-mardon pt-20">
             <p className="text-center text-[1rem] sm:text-[2rem] lg:text-[2.5rem]
                 max-w-250 mx-auto ">𓏲𝄢 DRIVEN BY PASSION AND DEFINED BY PERSPECTIVE 𓏲𝄢</p>
         </div>

@@ -54,13 +54,12 @@ const ContactForm = () => {
     }
 
     return (
-    <form onSubmit={handleSubmit} className="contactInputs font-outfit-medium space-y-6">
+    <form onSubmit={handleSubmit} className="contactInputs font-outfit-medium space-y-6 ">
 
         <div>
             <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Name *
             </label>
-
             <input name="name" required onChange={handleChange} value={formData.name} type="text" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
         </div>
 
@@ -68,7 +67,6 @@ const ContactForm = () => {
             <label htmlFor="email" className="block text-sm font-medium mb-2">
                 Email *
             </label>
-
             <input name="email" required onChange={handleChange} value={formData.email} type="email" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
         </div>
 
@@ -76,7 +74,6 @@ const ContactForm = () => {
             <label htmlFor="phone" className="block text-sm font-medium mb-2">
                 Phone Number (Optional) *
             </label>
-
             <input name="phone" onChange={handleChange} value={formData.phone} type="phone" className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300"/>
         </div>
 
@@ -84,7 +81,6 @@ const ContactForm = () => {
             <label htmlFor="message" className="block text-sm font-medium mb-2">
                 Tell Me About Your Project *
             </label>
-
             <textarea name="message" required onChange={handleChange} value={formData.message} className="w-full px-4 py-3 border-b border-gray-300 focus:border-black focus:ring-1 focus:ring-black outline-none transition duration-300" />
         </div>
 
@@ -106,8 +102,8 @@ const ContactForm = () => {
 
         <div className="flex justify-end w-full">
             <button disabled={isSubmitting} type="submit" className="flex items-center space-x-5 group cursor-pointer px-5">
-                <p className="text-[1.5rem] group-hover:text-black transition-colors duration-300">Send</p>
-                <div className="size-12 bg-black centerlizeItems rounded-full">
+                <p className="text-[1.5rem] group-hover:text-black font-mardon transition-colors duration-300">Send</p>
+                <div className="size-12 bg-primary-accent text-white centerlizeItems rounded-full">
                     <ArrowRight size={38} className="group-hover:-rotate-45 transition-transform duration-300 "/>
                 </div>
             </button>

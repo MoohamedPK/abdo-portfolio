@@ -11,6 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
+
     const textRef = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLElement>(null);
     const imageRefs = useRef<HTMLImageElement[]>([]);
@@ -20,20 +21,16 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
 
         const mm = gsap.matchMedia();
         // Text animation
-        const paragraphSplited = new SplitText(textRef.current, { type: "words", mask: "words" });
+        const paragraphSplited = new SplitText(textRef.current, { type: "lines", mask: "lines" });
+        gsap.set(paragraphSplited.lines, {yPercent: 120, rotateX: 40 })
 
-        const tl = gsap.timeline({
-        scrollTrigger: {
+        gsap.to(
+        paragraphSplited.lines,
+        { yPercent: 0, rotateX: 0, duration: 2, ease: "power3.inOut", stagger: 0.05, scrollTrigger: {
             trigger: containerRef.current,
-            start: "top bottom",
+            start :"top bottom",
             end: "bottom bottom",
-        },
-        });
-
-        tl.fromTo(
-        paragraphSplited.words,
-        { yPercent: 100, rotateY: 40 },
-        { yPercent: 0, rotateY: 0, duration: 1.5, ease: "power3.inOut", stagger: 0.05 }
+        } }
         );
 
         // Individual scroll animation for each image
@@ -47,7 +44,6 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
                 start: "top bottom",
                 end: "top top",
                 scrub: 1.5,
-                markers:true,
                 invalidateOnRefresh: true,
             },
             });
@@ -100,23 +96,15 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
         });
 
         return () => {
-        tl.kill();
         paragraphSplited.revert();
         ScrollTrigger.getAll().forEach((st) => st.kill());
         };
     }, [containerRef, imageRefs]);
 
     return (
-        <section ref={containerRef} id="work" className="bg-black">
-        <div className="workShowcase py-15 md:py-20 flex items-center justify-center px-4 sm:px-6 md:px-10">
-            <div
-            ref={textRef}
-            className="work_quote text-[1rem] sm:text-[2rem] lg:text-[2.5rem] max-w-250 text-center uppercase font-roleya leading-6 md:leading-15"
-            >
-            <p>
-                𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢
-            </p>
-            </div>
+        <section ref={containerRef} id="work" className="">
+        <div className="py-15 md:py-20 flex items-center justify-center px-4 sm:px-6 md:px-10">
+            <p ref={textRef} className="font-mardon italic work_quote text-[1rem] sm:text-[2rem] lg:text-[2.5rem] text-center max-w-250 uppercase">𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

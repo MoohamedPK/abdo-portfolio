@@ -10,7 +10,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-primary-accent text-background/75`}
+        className={`antialiased `}
       >
           <LenisProvider/>
             {children}
@@ -18,3 +18,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// bg-primary-accent text-background/75
