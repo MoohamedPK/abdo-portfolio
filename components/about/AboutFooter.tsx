@@ -1,16 +1,42 @@
 "use client"
 
-import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import { CloudinaryMediaProps } from "@/utils/types"
 import { CldImage } from "next-cloudinary"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { SplitText } from "gsap/SplitText"
+import { useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const AboutFooter = ({workMedia}: {workMedia: CloudinaryMediaProps[]}) => {
 
-    useTextRevealAnimation({trigger: ".aboutFooter", ele: ".quote"})
+  const aboutFooterRef = useRef<HTMLElement | null>(null)
+
+    useGSAP(() => {
+      const quoteSplit = new SplitText(".quote", {type: "words", mask: "words"});
+
+      gsap.set(quoteSplit.words, {
+        yPercent: 100,
+      })
+
+      gsap.to(quoteSplit.words, {
+        yPercent: 0,
+        duration: 1.5,
+        ease: "power3.inOut",
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: aboutFooterRef.current,
+          start: "top 90%",
+        }
+      })
+    }, [aboutFooterRef])
+
   return (
-    <section className="aboutFooter h-[75svh] md:h-[110dvh]">
-        <div className="quote font-mardon pt-20">
-            <p className="text-center text-[1rem] sm:text-[2rem] lg:text-[2.5rem]
+    <section ref={aboutFooterRef} className="aboutFooter h-[75svh] md:h-[110dvh]">
+        <div className=" font-mardon pt-20">
+            <p className="quote text-center text-[1rem] sm:text-[2rem] lg:text-[2.5rem]
                 max-w-250 mx-auto ">𓏲𝄢 DRIVEN BY PASSION AND DEFINED BY PERSPECTIVE 𓏲𝄢</p>
         </div>
 

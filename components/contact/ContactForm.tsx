@@ -44,7 +44,7 @@ const ContactForm = () => {
         setSubmitStatus("success")
         setFormData({ name: '', email: '', phone: '', message: '' })
 
-        setTimeout(() => { setSubmitStatus("idle")}, 2000)
+        setTimeout(() => { setSubmitStatus("idle")}, 5000)
     } catch (error) {
         console.error("error to send email : ", error)
         setSubmitStatus('error')
@@ -101,7 +101,7 @@ const ContactForm = () => {
             )}
 
         <div className="flex justify-end w-full">
-            <button disabled={isSubmitting} type="submit" className="flex items-center space-x-5 group cursor-pointer px-5">
+            <button disabled={isSubmitting} type="submit" className={isSubmitting? "animate-pulse flex items-center space-x-5 group cursor-pointer px-5" : `flex items-center space-x-5 group cursor-pointer px-5`}>
                 <p className="text-[1.5rem] group-hover:text-black font-mardon transition-colors duration-300">Send</p>
                 <div className="size-12 bg-primary-accent text-white centerlizeItems rounded-full">
                     <ArrowRight size={38} className="group-hover:-rotate-45 transition-transform duration-300 "/>

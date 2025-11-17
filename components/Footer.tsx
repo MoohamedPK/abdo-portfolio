@@ -1,15 +1,64 @@
 "use client"
 
-import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
+// import { useTextRevealAnimation } from "@/hooks/useTextRevealAnimation"
 import { media, navLinks } from "@/utils/data"
+import { useRef } from "react"
+
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText"
+
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const Footer = () => {
-    useTextRevealAnimation({ trigger: ".footer", ele: ".mediaLink" })
-    useTextRevealAnimation({ trigger: ".footer", ele: ".link" })
-    useTextRevealAnimation({ trigger: ".footer", ele: ".footerTag" })
+    // useTextRevealAnimation({ trigger: ".footer", ele: ".mediaLink" })
+    // useTextRevealAnimation({ trigger: ".footer", ele: ".link" })
+    // useTextRevealAnimation({ trigger: ".footer", ele: ".footerTag" })
+
+    const footerRef = useRef<HTMLElement | null>(null)
+
+    useGSAP(() => {
+
+        // const mediaLinks = gsap.utils.toArray(".mediaLink")
+        const links = gsap.utils.toArray(".link")
+        const footerTagSplit = new SplitText(".footerTag", {type: "words", mask: "words"});
+        const mediaLinksSplit = new SplitText(".mediaLink", {type: "words", mask: "words" })
+        const linksSplit = new SplitText(".link", {type: "words", mask: "words" })
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: footerRef.current,
+                start: "top 80%",
+                end: "bottom bottom",
+            },
+            defaults: {
+                duration: 1.5,
+                ease: "power3.inOut",
+                stagger: 0.05
+            }
+        })
+
+        gsap.set([mediaLinksSplit.words, linksSplit.words, footerTagSplit.words], {
+            yPercent: 100
+        })
+
+        tl.to(mediaLinksSplit.words, {
+            yPercent: 0,
+        })
+
+        .to(linksSplit.words, {
+            yPercent: 0
+        }, "<0.3")
+
+        .to(footerTagSplit.words, {
+            yPercent: 0
+        }, "<0.3")
+
+    }, [footerRef])
 
     return (
-        <footer className="footer bg-black text-white pt-20 pb-8 min-h-[60vh] flex flex-col justify-between font-mardon">
+        <footer ref={footerRef} className="footer bg-black text-white pt-20 pb-8 min-h-[60vh] flex flex-col justify-between font-mardon">
         <div className="md:container mx-auto px-4 sm:px-6 lg:px-12 flex justify-around gap-12 text-center sm:text-left">
             {/* Left column */}
             <div>

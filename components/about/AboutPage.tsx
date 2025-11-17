@@ -62,10 +62,10 @@ const AboutPage = ({media, workMedia}: AboutPageProps) => {
     return (
         <main className="">
             <section className="head h-screen relative">
-                <div onClick={handleBackHistory} className="backBtn fixed top-15 left-15 z-90">
+                <div onClick={handleBackHistory} className="backBtn fixed top-7 left-7 md:top-15 md:left-15 z-90">
                     <button 
                         ref={backButtonRef}
-                        className="border border-white text-white p-3 rounded-full cursor-pointer transition-all duration-300 hover:scale-95 hover:bg-white hover:text-black"
+                        className="border border-white text-white p-2 md:p-3 rounded-full cursor-pointer transition-all duration-300 hover:scale-95 hover:bg-white hover:text-black"
                     >
                         <ArrowLeft/>
                     </button>
@@ -86,12 +86,12 @@ const AboutPage = ({media, workMedia}: AboutPageProps) => {
                 </div>
             </section>
 
-            <section ref={aboutSecRef} className="aboutSection bg-white h-[70svh] md:h-[80svh] md:container py-24! size-full container">
+            <section ref={aboutSecRef} className="aboutSection bg-white h-[60svh] md:h-[80svh] md:container py-24! size-full container">
                 <div className="">
                     <div ref={aboutLableRef} className="aboutTitle text-sm font-mardon text-primary-accent font-bold">
                         <h3>✹ ABOUT ME</h3>
                     </div>
-                    <div ref={aboutParaRef} className="w-full md:w-4/6 px-4 pt-8 absolute left-1/2 -translate-x-1/2 text-start md:text-center font-outfit-regular text-[1.1rem]">
+                    <div ref={aboutParaRef} className="w-full md:w-4/6 px-4 pt-8 absolute left-1/2 -translate-x-1/2 text-start md:text-center font-outfit-regular text-sm md:text-[1.1rem]">
                         <p className="">The Hero Section Design, pro minently featured at the webpage&apos;s top, is crucial for capturing visitor attention and conveying the site&apos;s primary purpose. Designed for showcasing key product features, it can also promote special offers or actions.</p>
                     </div>
                 </div>

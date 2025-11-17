@@ -10,7 +10,6 @@ gsap.registerPlugin(SplitText);
 const Hero = () => {
 
     useGSAP(() => {
-        
         const tl = gsap.timeline({
             defaults:{
                 duration: 1.5,
@@ -23,11 +22,12 @@ const Hero = () => {
         const HeroTextSplit = new SplitText(".HeroName", {type: "chars", mask: "chars"})
         const paraTextSplit = new SplitText(".heroParagraph", {type: "words", mask: "words"})
         
+        gsap.set(".btn-effect", {scaleX: 0})
         gsap.set(".hero-btn", {opacity: 0, yPercent: 100});
         gsap.set([paraTextSplit.words, initialTextSplit.chars, HeroTextSplit.chars], {yPercent: 100,
             rotateY: 70,
             xPercent: -20,
-            filter: "blur(7px)",})
+            filter: "blur(5px)",})
 
         tl.to(initialTextSplit.chars, {
             rotateY: 0,
@@ -43,7 +43,6 @@ const Hero = () => {
             yPercent: 0,
             
         }, "<0.5")
-        
 
         .to(paraTextSplit.words,{
             yPercent: 0,
@@ -51,7 +50,6 @@ const Hero = () => {
             rotateY: 0,
             filter: "blur(0px)",
         }, "<0.7")
-        
 
         .to(".hero-btn", {
             opacity: 1,
@@ -82,13 +80,13 @@ return (
 
     <div className=" text-center flex justify-center items-center space-x-8 pt-8 font-mardon">
             <Link href={"#contact"} className="">
-                <button className="hero-btn border-2 rounded-full py-2 text-xs px-6 cursor-pointer will-change-transform">
+                <button className="hero-btn border-2 rounded-full py-2 text-xs px-6 cursor-pointer will-change-transform transition-colors duration-300 hover:text-primary-accent">
                     Contact Me
                 </button>
             </Link>
 
             <Link href={"#work"} className="">
-                <button className="hero-btn border-2 rounded-full py-2 text-xs px-6 cursor-pointer will-change-transform">
+                <button className="hero-btn border-2 rounded-full py-2 text-xs px-6 cursor-pointer will-change-transform transition-colors duration-300 hover:text-primary-accent">
                     My Work
                 </button>
             </Link>

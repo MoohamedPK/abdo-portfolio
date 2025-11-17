@@ -104,7 +104,7 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
     return (
         <section ref={containerRef} id="work" className="">
         <div className="py-15 md:py-20 flex items-center justify-center px-4 sm:px-6 md:px-10">
-            <p ref={textRef} className="font-mardon italic work_quote text-[1rem] sm:text-[2rem] lg:text-[2.5rem] text-center max-w-250 uppercase">𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢</p>
+            <p ref={textRef} className="font-mardon italic work_quote text-[1rem] sm:text-[2rem] lg:text-[2.5rem] text-center max-w-250 uppercase leading-relaxed">𓏲𝄢 A thing that you see in my pictures is that I was not afraid to fall in love with these people. 𓏲𝄢</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
