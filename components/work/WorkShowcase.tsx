@@ -22,13 +22,13 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
         const mm = gsap.matchMedia();
         // Text animation
         const paragraphSplited = new SplitText(textRef.current, { type: "lines", mask: "lines" });
-        gsap.set(paragraphSplited.lines, {yPercent: 120, rotateX: 40 })
+        gsap.set(paragraphSplited.lines, {yPercent: 100 })
 
         gsap.to(
         paragraphSplited.lines,
-        { yPercent: 0, rotateX: 0, duration: 2, ease: "power3.inOut", stagger: 0.05, scrollTrigger: {
+        { yPercent: 0, duration: 1.5, ease: "power3.inOut", stagger: 0.05, scrollTrigger: {
             trigger: containerRef.current,
-            start :"top bottom",
+            start :"top 80%",
             end: "bottom bottom",
         } }
         );
@@ -48,9 +48,11 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
             },
             });
 
-            tl.fromTo(
+            gsap.set(img, {
+                opacity: 0.3, scale: 0.8
+            })
+            tl.to(
             img,
-            { opacity: 0.3, scale: 0.8 },
             { opacity: 1, scale: 1, duration: 1.5 }
             );
         });
@@ -60,7 +62,7 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
             trigger: img,
             start: "top bottom",
             end: "top top",
-            scrub: 0.5,
+            scrub: 1,
             invalidateOnRefresh: true,
             animation: gsap.fromTo(
                 img,
