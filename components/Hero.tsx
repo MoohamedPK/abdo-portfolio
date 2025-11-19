@@ -27,10 +27,12 @@ const Hero = () => {
         gsap.set([paraTextSplit.words, initialTextSplit.chars, HeroTextSplit.chars], {yPercent: 100,
             rotateY: 70,
             xPercent: -20,
+            opacity: 0,
             filter: "blur(5px)",})
 
         tl.to(initialTextSplit.chars, {
             rotateY: 0,
+            opacity: 1,
             xPercent: 0,
             filter: "blur(0px)",
             yPercent: 0,
@@ -38,6 +40,7 @@ const Hero = () => {
 
         .to(HeroTextSplit.chars, {
             rotateY: 0,
+            opacity: 1,
             xPercent: 0,
             filter: "blur(0px)",
             yPercent: 0,
@@ -46,6 +49,7 @@ const Hero = () => {
 
         .to(paraTextSplit.words,{
             yPercent: 0,
+            opacity: 1,
             xPercent: 0,
             rotateY: 0,
             filter: "blur(0px)",
@@ -73,7 +77,7 @@ return (
         </div>
 
         <div className="text-center space-y-5 md:space-y-0">
-            <h1 className="HeroName text-[2.5rem] sm:text-[3.5rem] md:text-[6rem] lg:text-[8rem] text-primary-accent font-mardon tracking-widest leading-11 md:leading-normal will-change-transform">Abdorahman</h1>
+            <h1 className="HeroName text-[2.5rem] sm:text-[3.5rem] md:text-[6rem] lg:text-[8rem] text-primary-accent font-mardon tracking-widest leading-11 md:leading-normal will-change-transform">ABDERRAHMANE</h1>
             <p className="heroParagraph font-outfit-light lowercase text-[0.8rem] md:text-[1.3rem] leading-8 will-change-transform">Welcome to my lens  where light, emotion, and creativity come to life</p>
         </div>
     </div>

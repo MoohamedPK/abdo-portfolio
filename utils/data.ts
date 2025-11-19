@@ -6,8 +6,6 @@ export const navLinks = [
 ]
 
 export const media = [
-    {media: "instagram", link: ""},
-    {media: "twitter", link: ""},
-    {media: "whatsapp", link: ""},
-    {media: "facebook", link: ""},
+    {media: "instagram", link: "https://www.instagram.com/_abdou_hml/"},
+    {media: "whatsapp", link: "https://wa.me/212611877969"},
 ]

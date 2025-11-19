@@ -26,7 +26,7 @@ const WorkShowcase = ({ images }: { images: CloudinaryMediaProps[] }) => {
 
         gsap.to(
         paragraphSplited.lines,
-        { yPercent: 0, duration: 1.5, ease: "power3.inOut", stagger: 0.05, scrollTrigger: {
+        { yPercent: 0, duration: 2, ease: "power3.inOut", stagger: 0.09, scrollTrigger: {
             trigger: containerRef.current,
             start :"top 80%",
             end: "bottom bottom",

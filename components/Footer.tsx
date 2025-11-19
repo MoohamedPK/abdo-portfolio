@@ -8,6 +8,7 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText"
+import Link from "next/link"
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -20,8 +21,6 @@ const Footer = () => {
 
     useGSAP(() => {
 
-        // const mediaLinks = gsap.utils.toArray(".mediaLink")
-        const links = gsap.utils.toArray(".link")
         const footerTagSplit = new SplitText(".footerTag", {type: "words", mask: "words"});
         const mediaLinksSplit = new SplitText(".mediaLink", {type: "words", mask: "words" })
         const linksSplit = new SplitText(".link", {type: "words", mask: "words" })
@@ -63,25 +62,25 @@ const Footer = () => {
             {/* Left column */}
             <div>
             <h1 className="pb-6 text-xl  tracking-wide">INTERESTING</h1>
-            <ul className="flex flex-col space-y-3 text-gray-300">
+            <div className="flex flex-col space-y-3 text-gray-300">
                 {navLinks.map((link) => (
-                <li className="link hover:text-white transition-colors" key={link.link}>
+                <Link href={link.href} className="link hover:text-primary-accent transition-colors duration-300 " key={link.link}>
                     {link.link}
-                </li>
+                </Link>
                 ))}
-            </ul>
+            </div>
             </div>
 
             {/* Right column */}
             <div>
-            <h1 className="pb-6 text-xl  tracking-wide">MORE ABOUT ME</h1>
-            <ul className="flex flex-col space-y-3 text-gray-300">
+            <h1 className="pb-6 text-xl tracking-wide">MORE ABOUT ME</h1>
+            <div className="flex flex-col space-y-3 text-gray-300">
                 {media.map((m) => (
-                <li className="mediaLink hover:text-white transition-colors" key={m.media}>
+                <Link href={m.link} target="_blank" className="mediaLink hover:text-primary-accent transition-colors duration-300" key={m.media}>
                     {m.media}
-                </li>
+                </Link>
                 ))}
-            </ul>
+            </div>
             </div>
         </div>
 
