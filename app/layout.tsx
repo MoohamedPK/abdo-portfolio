@@ -1,5 +1,4 @@
 import "./globals.css";
-
 import LenisProvider from "@/providers/LenisProvider";
 
 export default function RootLayout({
@@ -9,11 +8,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased `}
-      >
-          <LenisProvider/>
-            {children}
+      <body className={`antialiased `}>
+        <LenisProvider />
+        {children}
       </body>
     </html>
   );
